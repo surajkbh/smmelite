@@ -2614,48 +2614,35 @@
                 alert("Payment rejected.");
             }
         }
-     <!-- ADSTERRA 100% WORKING TRIGGER ENGINE -->
+      <!-- SAFE ADS TRIGGER: PANEL CRASH NAHI HOGA -->
     <script>
-        // Direct CPM Link (Adsterra Direct Link)
-        const DIRECT_AD_URL = "https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js";
+        (function() {
+            // 1. Order submit hone ke baad safely ad trigger karega
+            const orderForm = document.getElementById('orderForm');
+            if (orderForm) {
+                orderForm.addEventListener('submit', function() {
+                    setTimeout(function() {
+                        const s = document.createElement('script');
+                        s.type = 'text/javascript';
+                        s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Date.now();
+                        document.body.appendChild(s);
+                    }, 500);
+                });
+            }
 
-        function forceShowAdsterra() {
-            try {
-                const s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Math.random().toString(36).substring(7);
-                document.body.appendChild(s);
-            } catch (e) {}
-        }
-
-        // 1. Har 5 Second par screen par fresh interaction trigger (Loop)
-        setInterval(function() {
-            forceShowAdsterra();
-        }, 5000);
-
-        // 2. Login submit karte waqt direct trigger
-        const loginFormEl = document.getElementById('loginForm');
-        if (loginFormEl) {
-            loginFormEl.addEventListener('submit', function() {
-                forceShowAdsterra();
-            }, true);
-        }
-
-        // 3. Order button dabate hi bypass popup-blocker direct trigger
-        const btnSubmitOrder = document.getElementById('btnSubmit');
-        if (btnSubmitOrder) {
-            btnSubmitOrder.addEventListener('pointerdown', function() {
-                forceShowAdsterra();
-                // Popunder / Direct link trigger
-                const a = document.createElement('a');
-                a.href = DIRECT_AD_URL;
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            }, true);
-        }
+            // 2. Login button click hone par background trigger
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function() {
+                    setTimeout(function() {
+                        const s = document.createElement('script');
+                        s.type = 'text/javascript';
+                        s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Date.now();
+                        document.body.appendChild(s);
+                    }, 500);
+                });
+            }
+        })();
     </script>
     <script type="text/javascript" src="https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js"></script>
 </body>
