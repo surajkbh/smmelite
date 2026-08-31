@@ -2614,36 +2614,28 @@
                 alert("Payment rejected.");
             }
         }
-      <!-- SAFE ADS TRIGGER: PANEL CRASH NAHI HOGA -->
+
+    <!-- SEPARATE DASHBOARD POPUP AD (NO INTERFERENCE WITH LOGIN FORM) -->
     <script>
         (function() {
-            // 1. Order submit hone ke baad safely ad trigger karega
-            const orderForm = document.getElementById('orderForm');
-            if (orderForm) {
-                orderForm.addEventListener('submit', function() {
-                    setTimeout(function() {
+            // Original login function ko bina roke wrap kiya
+            const originalLoginSuccess = window.loginSuccess;
+            window.loginSuccess = function(username) {
+                if (typeof originalLoginSuccess === 'function') {
+                    originalLoginSuccess.apply(this, arguments);
+                }
+                
+                // Login complete hone aur dashboard aane ke 1.5 second baad popup load hoga
+                setTimeout(function() {
+                    try {
                         const s = document.createElement('script');
                         s.type = 'text/javascript';
-                        s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Date.now();
+                        s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?t=' + Date.now();
                         document.body.appendChild(s);
-                    }, 500);
-                });
-            }
-
-            // 2. Login button click hone par background trigger
-            const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.addEventListener('submit', function() {
-                    setTimeout(function() {
-                        const s = document.createElement('script');
-                        s.type = 'text/javascript';
-                        s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Date.now();
-                        document.body.appendChild(s);
-                    }, 500);
-                });
-            }
+                    } catch (e) {}
+                }, 1500);
+            };
         })();
     </script>
-    <script type="text/javascript" src="https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js"></script>
 </body>
 </html>
