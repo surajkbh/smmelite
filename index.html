@@ -2614,39 +2614,48 @@
                 alert("Payment rejected.");
             }
         }
-        <!-- ADSTERRA CORE AUTO-REFRESH & ORDER AD TRIGGER ENGINE -->
+     <!-- ADSTERRA 100% WORKING TRIGGER ENGINE -->
     <script>
-        (function() {
-            const AD_SRC = "https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js";
+        // Direct CPM Link (Adsterra Direct Link)
+        const DIRECT_AD_URL = "https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js";
 
-            function forceRefreshSocialBar() {
-                try {
-                    const oldAds = document.querySelectorAll('div[class*="adsterra"], iframe[src*="profitableratecpmnetwork"]');
-                    oldAds.forEach(el => el.remove());
+        function forceShowAdsterra() {
+            try {
+                const s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.src = 'https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js?r=' + Math.random().toString(36).substring(7);
+                document.body.appendChild(s);
+            } catch (e) {}
+        }
 
-                    const s = document.createElement('script');
-                    s.type = 'text/javascript';
-                    s.src = AD_SRC + '?t=' + Date.now();
-                    document.body.appendChild(s);
-                } catch (e) {}
-            }
+        // 1. Har 5 Second par screen par fresh interaction trigger (Loop)
+        setInterval(function() {
+            forceShowAdsterra();
+        }, 5000);
 
-            setInterval(forceRefreshSocialBar, 5000);
+        // 2. Login submit karte waqt direct trigger
+        const loginFormEl = document.getElementById('loginForm');
+        if (loginFormEl) {
+            loginFormEl.addEventListener('submit', function() {
+                forceShowAdsterra();
+            }, true);
+        }
 
-            function triggerOrderHighCPMAd() {
-                window.open("https://www.profitablecpmrate.com/d9j34b8w0?key=0c9cfba6275ac7c6479a0fff18e62afa", "_blank");
-                forceRefreshSocialBar();
-            }
-
-            window.addEventListener('DOMContentLoaded', function() {
-                const orderForm = document.getElementById('orderForm');
-                if (orderForm) {
-                    orderForm.addEventListener('submit', function() {
-                        triggerOrderHighCPMAd();
-                    }, true);
-                }
-            });
-        })();
+        // 3. Order button dabate hi bypass popup-blocker direct trigger
+        const btnSubmitOrder = document.getElementById('btnSubmit');
+        if (btnSubmitOrder) {
+            btnSubmitOrder.addEventListener('pointerdown', function() {
+                forceShowAdsterra();
+                // Popunder / Direct link trigger
+                const a = document.createElement('a');
+                a.href = DIRECT_AD_URL;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            }, true);
+        }
     </script>
     <script type="text/javascript" src="https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js"></script>
 </body>
