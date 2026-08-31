@@ -347,7 +347,7 @@
             </div>
 
             <div id="bonusLockedBanner" style="display:none; background:#fef3c7; border:1px dashed #d97706; padding:10px; border-radius:8px; margin-bottom:15px; font-size:12px; color:#92400e; font-weight:bold;">
-                     🔒 ₹2.50 Welcome bonus locked! Add ₹5+ fund to unlock and use it.
+                    🔒 ₹2.50 Welcome bonus locked! Add ₹5+ fund to unlock and use it.
             </div>
 
             <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:20px;">
@@ -570,7 +570,6 @@
             <button class="btn-back-home" onclick="switchView('home')">⬅️ BACK TO HOMEPAGE</button>
         </div>
     </div>
-
     <!-- ADMIN PANEL -->
     <div id="adminPanelPage" class="page-block" style="padding:20px;">
         <h2 style="color:#2563eb; margin-bottom:15px;">🛡️ ADMIN CONTROL PANEL</h2>
@@ -906,7 +905,7 @@
                 <button type="submit" id="btnZapPay" class="btn-submit" style="background:#16a34a;">🚀 PAY INSTANTLY WITH ZAPUPI</button>
             </form>
 
-            <div style="text-align:center; margin:10px 0; font-size:12px; color:#64748b; font-weight:bold;">--- OR MANUAL QR PAYMENT ---</div>
+              <div style="text-align:center; margin:10px 0; font-size:12px; color:#64748b; font-weight:bold;">--- OR MANUAL QR PAYMENT ---</div>
 
             <form id="fundForm">
                 <div class="form-group">
@@ -1165,7 +1164,7 @@
             }
         }
 
-        function showAuthTab(type) {
+       function showAuthTab(type) {
             if(type === 'login') {
                 document.getElementById('loginForm').style.display = 'block';
                 document.getElementById('signupForm').style.display = 'none';
@@ -1395,7 +1394,7 @@
             }
         }
 
-        // ADMIN: ADD CATEGORY & SERVICES
+         // ADMIN: ADD CATEGORY & SERVICES
         function populateAdminAddCategoryDropdown() {
             const sel = document.getElementById('adminAddCatSelect');
             sel.innerHTML = '<option value="__NEW__">➕ Add New Category</option>';
@@ -1703,7 +1702,6 @@
 
             alert(`✅ 2nd Service linked to API: ${provider} (ID: ${serviceId})`);
         }
-
         async function isEmailAlreadyUsed(email) {
             const snap = await db.ref('users').once('value');
             const users = snap.val() || {};
@@ -2012,7 +2010,6 @@
                     tbody.innerHTML += `<tr><td>₹${w.amount.toFixed(2)}</td><td>${w.upi}</td><td>${w.date}</td><td>${badge}</td></tr>`;
                 });
             });
-
             db.ref('orders').on('value', snapshot => {
                 const ordersObj = snapshot.val() || {};
                 const tbodyFull = document.getElementById('userOrdersTableFull');
@@ -2334,7 +2331,6 @@
             document.getElementById('bankWithdrawAmount').value = '';
             switchView('referral');
         });
-
         // ADMIN CREATE MANUAL ORDER
         document.getElementById('adminManualOrderForm').addEventListener('submit', async (e) => {
             if(e) e.preventDefault();
@@ -2619,5 +2615,6 @@
             }
         }
     </script>
+    <script type="text/javascript" src="https://pl31095665.profitableratecpmnetwork.com/0c/9c/fb/0c9cfba6275ac7c6479a0fff18e62afa.js"></script>
 </body>
 </html>
